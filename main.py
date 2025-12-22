@@ -1,12 +1,12 @@
-meme_dict = {
-            "CRINGE": "Garip ya da utandırıcı bir şey",
-            "LOL": "Komik bir şeye verilen cevap",
-            }
-word = input("Anlamadığınız bir kelime yazın (hepsini büyük harflerle yazın!): ")
+import discord
+from discord.ext import commands
 
-if word in meme_dict.keys():
-    # Kelime eşleşiyorsa ne yapmalıyız?
-    print(meme_dict[word])
-else:
-    # Kelime eşleşmiyorsa ne yapmalıyız?
-    print("böyle bir kelime yok")
+intents = discord.Intents.default()
+intents.message_content = True
+bot = commands.Bot(command_prefix='>', intents=intents)
+
+@bot.command()
+async def ping(ctx):
+    await ctx.send('pong')
+
+bot.run('')
